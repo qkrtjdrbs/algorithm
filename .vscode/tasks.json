@@ -68,8 +68,8 @@
         },
         {
             "type": "shell",
-            "label": "g++.exe build active file",
-            "command": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:/mingw64/bin/g++.exe",
             "args": [
                 "-g",
                 "${file}",
@@ -77,21 +77,14 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin"
-            }
-        },
-        {
-            "type": "shell",
-            "label": "cpp.exe build active file",
-            "command": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\cpp.exe",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "cwd": "C:/mingw64/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
             ],
-            "options": {
-                "cwd": "C:\\Program Files (x86)\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin"
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }
     ]
