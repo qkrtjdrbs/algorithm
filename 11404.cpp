@@ -32,6 +32,6 @@ int main(){
             else    
                 cout << dp[i][j] << " ";
         }
-        cout << endl;
+        cout << '\n';
     }
 }
