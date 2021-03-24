@@ -20,7 +20,10 @@ int main(){
     while(!s.empty()){
         ngf[s.top()]=-1;
         s.pop();
+
+
     }
+    
     for(int i=1;i<=n;i++)
         cout << ngf[i] << ' ';
 }
