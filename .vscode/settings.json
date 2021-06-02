@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "iostream": "cpp",
         "queue": "cpp",
         "array": "cpp",
@@ -74,5 +75,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
+=======
+        "iostream": "cpp"
+>>>>>>> bcbfbf89b4bff10f8ab3106396e05a364e484f01
     }
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <algorithm>
 using namespace std;
 int n, m[26][26], visit[26][26], num[26*26];
@@ -44,4 +45,12 @@ int main()
     printf("%d\n", cnt);
     for(int i=1;i<=cnt;i++)
         printf("%d\n",num[i]);
+=======
+#include <vector>
+using namespace std;
+int n,data[26][26],num[26],visit[26];
+
+int main(){
+
+>>>>>>> bcbfbf89b4bff10f8ab3106396e05a364e484f01
 }
