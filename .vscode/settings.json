@@ -2,6 +2,8 @@
     "files.associations": {
         "*.html": "html",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ios": "cpp",
+        "tuple": "cpp"
     }
 }
