@@ -39,70 +39,56 @@ void blizzard(int dir, int dist){
 
 void explosion(){
     bool flag = 1;
-    int prev = 0;
     vector<pair<int, int>> seq;
     while(flag){
-        prev = 0; flag = 0;
+        flag = 0;
         for(int i=1;i<order.size();i++){
             int x, y;
             tie(x, y) = order[i];
             if(!Map[x][y]) continue;
-            if(!prev) {
-                seq.push_back({x, y});
-                prev = Map[x][y];
-                continue;
+            seq.push_back({x, y});
+            for(int j=i+1;j<order.size();j++){
+                int nx, ny;
+                tie(nx, ny) = order[j];
+                if(!Map[nx][ny]) continue;
+                if(Map[nx][ny] == Map[x][y]) seq.push_back({nx, ny});
+                else break;
             }
-            if(prev == Map[x][y]) seq.push_back({x, y});
-            else {
-                int len = seq.size();
-                if(len >= 4){
-                    for(auto j : seq) Map[j.first][j.second] = 0;
-                    score[prev] += len;
-                    flag = 1;
+            if(seq.size() >= 4){
+                flag = 1;
+                for(auto m : seq){
+                    score[Map[m.first][m.second]] += 1;
+                    Map[m.first][m.second] = 0;
                 }
-                seq.clear();
-                seq.push_back({x, y});
-                prev = Map[x][y];
             }
-        }
-        if(seq.size() >= 4){
-            for(auto x : seq) Map[x.first][x.second] = 0;
-            score[prev] += seq.size();
+            i += seq.size()-1;
+            seq.clear();
         }
         seq.clear();
     }
 }
 
 void makeMarble(){
-    int seq = 1, prev = 0, pos = 1, tmp[50][50];
+    int pos = 1, tmp[50][50];
     memset(tmp, 0, sizeof(tmp));
     for(int i=1;i<order.size();i++){
-        int x, y;
+        int x, y, fx, fy, sx, sy, seq=1, j;
         tie(x, y) = order[i];
         if(!Map[x][y]) continue;
-        if(!prev) {
-            prev = Map[x][y];
-            continue;
+        for(j=i+1;j<order.size();j++){
+            int nx, ny;
+            tie(nx, ny) = order[j];
+            if(!Map[nx][ny]) continue;
+            if(Map[nx][ny] == Map[x][y]) seq++;
+            else break;
         }
-        if(prev == Map[x][y]) seq++;
-        else {
-            int fx, fy, sx, sy;
-            tie(fx, fy) = order[pos];
-            tie(sx, sy) = order[pos+1];
-            tmp[fx][fy] = seq;
-            tmp[sx][sy] = prev;
-            seq = 1;
-            pos += 2;
-            if(pos >= n*n) break;
-            prev = Map[x][y];
-        }
-    }
-    if(pos < n*n){
-        int fx, fy, sx, sy;
+        if(pos >= n*n) break;
         tie(fx, fy) = order[pos];
         tie(sx, sy) = order[pos+1];
         tmp[fx][fy] = seq;
-        tmp[sx][sy] = prev;
+        tmp[sx][sy] = Map[x][y];
+        pos += 2;
+        i = j - 1;
     }
     memcpy(Map, tmp, sizeof(tmp));
 }
