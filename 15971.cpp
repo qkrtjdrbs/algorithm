@@ -46,10 +46,8 @@ void dfs(int x){
 int main(){
     cin.tie(NULL); cout.tie(NULL); ios::sync_with_stdio(0);
     cin >> n >> a >> b;
-    for(int i=1;i<=n;i++){
-        distA[i] = 987654321;
-        distB[i] = 987654321;
-    }
+    fill(distA, distA+n+1, 987654321);
+    fill(distB, distB+n+1, 987654321);
     for(int i=0;i<n-1;i++){
         int x, y, d;
         cin >> x >> y >> d;
