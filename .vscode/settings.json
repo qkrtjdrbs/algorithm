@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "iostream": "cpp"
+        "*.html": "html",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "ios": "cpp",
+        "tuple": "cpp",
+        "xiosbase": "cpp",
+        "utility": "cpp"
     }
 }

@@ -1,29 +1,29 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int n,W,w[31],t,count;
-bool promising(int, int, int);
-void sum_of_subsets(int, int, int);
 
-int main(){
-    cin >> n >> W;
-    for(int i=1;i<=n;i++)
-        cin >> w[i];
-    for(int i=1;i<=n;i++)
-        t += w[i];
-    sum_of_subsets(0, t, 0);
-    cout << count;
+int n, c, ans, a[33];
+vector<int> v1, v2;
+
+void dfs(int s, int e, int sum, vector<int>& v) {
+	if (sum > c) return;
+	if (s > e) return v.push_back(sum);
+	dfs(s + 1, e, sum, v);
+	dfs(s + 1, e, sum + a[s], v);
 }
 
-bool promising(int weight, int total, int i){
-    return (weight==W || weight+w[i+1] <= W);
-} 
+int main() {
+	scanf("%d %d", &n, &c);
+	for (int i = 0; i < n; i++) scanf("%d", &a[i]);
 
-void sum_of_subsets(int weight, int total, int i){
-    if(promising(weight, total, i)){
-        if(i==n && weight <= W) count++;
-        else{
-            sum_of_subsets(weight+w[i+1], total-w[i+1], i+1);
-            sum_of_subsets(weight, total-w[i+1], i+1);
-        }
-    }
+	dfs(0, n / 2 - 1, 0, v1); sort(v1.begin(), v1.end());
+	dfs(n / 2, n - 1, 0, v2); sort(v2.begin(), v2.end());
+	
+	int e = v2.size() - 1;
+	for (int s = 0; s < v1.size(); s++) {
+		while (e >= 0 && v1[s] + v2[e] > c) e--;
+		ans += e + 1;
+	}
+	printf("%d", ans);
+
+	return 0;
 }

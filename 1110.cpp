@@ -11,7 +11,13 @@ int main()
 	{
 		b = cyc % 10;
 		a = cyc / 10;
+<<<<<<< HEAD
+
+		cyc = 10 * b + (b + a) %
+						   10;
+=======
 		cyc = 10 * b + (b + a) % 10;
+>>>>>>> bcbfbf89b4bff10f8ab3106396e05a364e484f01
 		n++;
 		if (j == cyc)
 		{
