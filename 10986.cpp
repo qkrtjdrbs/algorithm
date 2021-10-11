@@ -15,7 +15,7 @@ int main(){
         cnt[sum % m]++;
     }
     ans += cnt[0];
-    for(int i=0;i<=1000;i++){
+    for(int i=0;i<m;i++){
         ans += cnt[i] * (cnt[i] - 1) / 2;
     }
     cout << ans;
