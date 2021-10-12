@@ -8,6 +8,7 @@
         "xiosbase": "cpp",
         "utility": "cpp",
         "xtree": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "queue": "cpp"
     }
 }
