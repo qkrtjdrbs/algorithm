@@ -9,6 +9,9 @@
         "utility": "cpp",
         "xtree": "cpp",
         "iosfwd": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "xstring": "cpp"
     }
 }
