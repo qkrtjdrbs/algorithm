@@ -12,6 +12,11 @@
         "queue": "cpp",
         "deque": "cpp",
         "list": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "chrono": "cpp",
+        "complex": "cpp",
+        "cstdlib": "cpp",
+        "valarray": "cpp",
+        "random": "cpp"
     }
 }
