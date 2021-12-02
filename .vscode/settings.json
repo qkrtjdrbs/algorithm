@@ -17,6 +17,9 @@
         "complex": "cpp",
         "cstdlib": "cpp",
         "valarray": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "unordered_set": "cpp",
+        "set": "cpp",
+        "string": "cpp"
     }
 }
