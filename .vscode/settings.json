@@ -20,6 +20,7 @@
         "random": "cpp",
         "unordered_set": "cpp",
         "set": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "algorithm": "cpp"
     }
 }
