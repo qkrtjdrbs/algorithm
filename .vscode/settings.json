@@ -22,6 +22,7 @@
         "set": "cpp",
         "string": "cpp",
         "algorithm": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "stack": "cpp"
     }
 }
