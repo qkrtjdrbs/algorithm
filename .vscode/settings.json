@@ -23,6 +23,7 @@
         "string": "cpp",
         "algorithm": "cpp",
         "xutility": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "ratio": "cpp"
     }
 }
