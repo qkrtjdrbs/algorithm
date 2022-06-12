@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int n, m, v1, v2, dist[801];
-vector<pair<int, int>> M[200001];
+vector<pair<int, int>> adj[200001];
 
 void initDist(){
     for(int i=1;i<=n;i++){
@@ -9,25 +9,21 @@ void initDist(){
     }
 }
 
-int dijk(int start, int end){
-    if(start == end) return 0;
+long long dijk(int start, int end){
     initDist();
     priority_queue<pair<int ,int>> pq;
     pq.push({0, start});
+    dist[start] = 0;
     while(!pq.empty()){
-        int cost, vertex;
-        tie(cost, vertex) = pq.top();
-        cost *= -1;
-        if(cost == 987654321) return -cost;
+        auto [cost, cur] = pq.top();
         pq.pop();
-        if(vertex == end) break;
-        for(auto i : M[vertex]){
-            int toV, newC;
-            tie(toV, newC) = i;
-            if(dist[toV] > cost + newC){
-                dist[toV] = cost + newC;
-                pq.push({-(cost+newC), toV});
-            }
+        cost = -cost;
+        if(dist[cur] < cost) continue;
+        for(auto [next, nc] : adj[cur]){
+            nc += cost;
+            if(dist[next] <= nc) continue;
+            dist[next] = nc;
+            pq.push({-nc, next});
         }
     }
     return dist[end];
@@ -40,13 +36,12 @@ int main(){
     for(int i=0;i<m;i++){
         int from, to, cost;
         cin >> from >> to >> cost;
-        M[from].push_back({to, cost});
-        M[to].push_back({from, cost});
+        adj[from].push_back({to, cost});
+        adj[to].push_back({from, cost});
     }
     cin >> v1 >> v2;
-    int ans1 = dijk(1, v1) + dijk(v1, v2) + dijk(v2, n);
-    int ans2 = dijk(1, v2) + dijk(v2, v1) + dijk(v1, n);
-    int ans = min(ans1, ans2);
-    if(ans < 0) ans = -1;
-    cout << ans;
+    long long ans1 = dijk(1, v1) + dijk(v1, v2) + dijk(v2, n);
+    long long ans2 = dijk(1, v2) + dijk(v2, v1) + dijk(v1, n);
+    long long ans = min(ans1, ans2);
+    cout << (ans >= 987654321 ? -1 : ans);
 }
