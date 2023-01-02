@@ -24,6 +24,7 @@
         "algorithm": "cpp",
         "xutility": "cpp",
         "stack": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "unordered_map": "cpp"
     }
 }
